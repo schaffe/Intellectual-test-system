@@ -1,0 +1,43 @@
+<xs:schema targetNamespace="http://www.w3schools.com/ITS"
+           elementFormDefault="qualified"
+           xmlns="http://www.w3schools.com/ITS questions.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="complexity">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="easy" />
+            <xs:enumeration value="medium" />
+            <xs:enumeration value="hard" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="questions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="question" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="type"/>
+                            <xs:element type="xs:string" name="title"/>
+                            <xs:element type="complexity" name="complexity"/>
+                            <xs:element name="answers">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="variant" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:boolean" name="correctness" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

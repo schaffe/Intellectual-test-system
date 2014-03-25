@@ -1,0 +1,61 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<questions xmlns="http://www.w3schools.com/ITS"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.w3schools.com/ITS questions.xsd">
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Java Core Theme easy question 1</title>
+		<complexity>easy</complexity>
+		<answers>
+			<variant correctness="true">variant 1</variant>
+			<variant correctness="false">variant 2</variant>
+			<variant correctness="false">variant 3</variant>
+		</answers>
+	</question>
+	<question>
+		<type>FillInBlankQuestion</type>
+		<title>Java Core Theme easy question 2</title>
+		<complexity>easy</complexity>
+		<answers>
+			<variant correctness="true">correct answer</variant>
+		</answers>
+	</question>
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Java Core Theme medium question 3</title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="true">variant 1</variant>
+			<variant correctness="false">variant 2</variant>
+			<variant correctness="false">variant 3</variant>
+		</answers>
+	</question>
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Java Core Theme medium question 4</title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="true">variant 1</variant>
+			<variant correctness="false">variant 2</variant>
+			<variant correctness="false">variant 3</variant>
+		</answers>
+	</question>
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Java Core Theme hard question 5</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="true">variant 1</variant>
+			<variant correctness="false">variant 2</variant>
+			<variant correctness="false">variant 3</variant>
+		</answers>
+	</question>
+	<question>
+		<type>FillInBlankQuestion</type>
+		<title>Java Core Theme hard question 6</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="true">correct answer</variant>
+		</answers>
+	</question>
+</questions>
