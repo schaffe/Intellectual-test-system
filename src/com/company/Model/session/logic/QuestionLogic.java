@@ -34,4 +34,11 @@ public class QuestionLogic implements Serializable{
         return new QuestionParam(topicItem.getName(), complexity);
     }
 
+    public List<String> getStat() {
+        List<String> array = new ArrayList<>();
+        for(TopicStatisticItem item: topicStatistics) {
+            array.add(item.getStats());
+        }
+        return array;
+    }
 }

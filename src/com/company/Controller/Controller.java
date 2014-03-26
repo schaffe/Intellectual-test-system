@@ -43,8 +43,9 @@ public class Controller implements Observable {
      * Close System.in stream when finishing Controller
      */
     @Override
-    public void finalize() {
+    public void finalize() throws Throwable {
         this.in.close();
+        super.finalize();
     }
 
     public void notifyObservers() {

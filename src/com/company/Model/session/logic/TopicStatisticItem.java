@@ -26,6 +26,10 @@ final class TopicStatisticItem {
         return topicStatistic.addQuestion(result);
     }
 
+    public String getStats() {
+        return String.format("%s : %s",name,topicStatistic.getStats());
+    }
+
     public String getName() {
         return name;
     }

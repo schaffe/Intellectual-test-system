@@ -37,12 +37,14 @@ public class TestSystem implements Observer {
      * Receives line from keyboard and updates all of observers.
      */
     private Controller controller;
+    private CommandManager commandManager;
 
     public TestSystem(Controller controller, Console console) {
         this.console = console;
         this.controller = controller;
         controller.registerObserver(this);
-        controller.registerObserver(new CommandManager(this, controller));
+        commandManager = new CommandManager(this, controller);
+        controller.registerObserver(commandManager);
     }
 
     @Override
@@ -119,9 +121,11 @@ public class TestSystem implements Observer {
         return customersStorage;
     }
 
-    private void ask() {
+    public void ask() {
         output(session.askCurrent());
-        controller.readNext();
+        do {
+            controller.readNext();
+        } while (commandManager.commandFlag());
         session.checkCurrent(input);
         session.nextQuestion();
     }
@@ -147,5 +151,9 @@ public class TestSystem implements Observer {
     public void undo() {
         session.previousQuestion();
         ask();
+    }
+
+    public void stats() {
+        console.print(session.getStats());
     }
 }

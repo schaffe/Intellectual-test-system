@@ -37,5 +37,7 @@ public class CommandFactory {
         cache.put("exit", new ExitCommand(testSystem));
         cache.put("skip", new SkipCommand(testSystem));
         cache.put("undo", new UndoCommand(testSystem));
+        cache.put("stats", new StatsCommand(testSystem));
+        cache.put("ask", new AskCommand(testSystem));
     }
 }

@@ -13,10 +13,15 @@ import com.company.Model.TestSystem;
 public class CommandManager implements Observer{
     private final CommandFactory commandFactory;
     private Controller controller;
+    private boolean commandFlag = false;
 
     public CommandManager(TestSystem testSystem, Controller controller) {
         commandFactory = new CommandFactory(testSystem);
         this.controller = controller;
+    }
+
+    public boolean commandFlag() {
+        return commandFlag;
     }
 
     private void executeImmediate(Command... commands){
@@ -29,6 +34,7 @@ public class CommandManager implements Observer{
         if (input.startsWith("-")) {
             input = input.substring(1, input.length());
             if (isCommand(input)) {
+                commandFlag = true;
                 Command currentCommand = commandFactory.get(input);
                 if (isAvailable(currentCommand)) {
                     executeImmediate(currentCommand);
@@ -37,6 +43,8 @@ public class CommandManager implements Observer{
                 System.out.println("Not a command.");
                 controller.readNext();
             }
+        } else {
+            commandFlag = false;
         }
     }
 

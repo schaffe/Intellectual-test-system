@@ -14,6 +14,7 @@ class TopicStatistic {
     public final static int MAX_RATE = 100;
     private final static int MIN_RATE = 5;
     private final static int DEFAULT_RATE = 45;
+    int correct;
     private LinkedList<StatisticTableRow> data;
 
     public TopicStatistic() {
@@ -21,6 +22,7 @@ class TopicStatistic {
     }
 
     public Complexity addQuestion(boolean result) {
+
         int complexityId;
         if(data.isEmpty()) {
             complexityId = 2;
@@ -29,6 +31,7 @@ class TopicStatistic {
         }
         Complexity complexity = Complexity.get(complexityId);
         if(result) {
+            correct++;
             addCompletedQuestion(complexity);
         } else {
             addFailedQuestion(complexity);
@@ -61,6 +64,9 @@ class TopicStatistic {
         double newMul = prevMul + multiplier;
         double rate = newTotal / newMul;
 
+        if(rate > MAX_RATE) {
+            rate = MAX_RATE;
+        }
 
         return new StatisticTableRow(complexity, points, newMul, newTotal, rate);
     }
@@ -109,14 +115,39 @@ class TopicStatistic {
         }*/
 
         for (int i = 0; i < 20; i++){
-            System.out.println(table.data.getLast());
-            //table.addQuestion(getRandomBoolean(), table.getNextComplexity());
+            System.out.println(table.data.getLast().toString2());
+            //System.out.println(table.getStats());
+            table.addQuestion(getRandomBoolean());
 
             //table.addQuestion(false, table.getNextComplexity());
-            table.addQuestion(true);
+            //table.addQuestion(false);
         }
 
 
+    }
+
+    private int getComplexityCount(int complexity) {
+        int count = 0;
+        for (StatisticTableRow row : data) {
+            if(row.getComplexity() == complexity) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public String getStats() {
+        if (data.isEmpty()) {
+            return "No Stats";
+        }
+        return String.format("Questions: %s, Correct: %s, Rating %.0f, Simple: %s, Medium: %s, Hard %s",
+                    data.size(),
+                    correct,
+                    data.getLast().getRate(),
+                    getComplexityCount(1),
+                    getComplexityCount(2),
+                    getComplexityCount(3)
+                    );
     }
 
     private static boolean getRandomBoolean() {

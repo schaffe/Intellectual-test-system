@@ -1,7 +1,7 @@
 package com.company.Model.session;
 
+import com.company.Model.session.logic.QuestionLogic;
 import com.company.Model.session.question.Question;
-import com.company.Model.session.question.QuestionLogic;
 import com.company.Model.session.question.QuestionStorage;
 
 import java.io.Serializable;
@@ -75,8 +75,14 @@ public class TestSession implements Serializable{
         }
     }
 
-    public int getStats() {
-        return history.getCount();
+    public String getStats() {
+        logic.getStat();
+        StringBuilder builder = new StringBuilder();
+        for(String item: logic.getStat()) {
+            builder.append(item);
+            builder.append("\n");
+        }
+        return builder.toString();
     }
 
     public String getUser() {

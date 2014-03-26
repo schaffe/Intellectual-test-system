@@ -44,11 +44,21 @@ class StatisticTableRow {
     @Override
     public String toString() {
         return String.format("StatisticTableRow{" +
-                "complexity=" + complexity +
-                ", point=" + point +
+                "complexity= " + complexity +
+                ", point= " + point +
                 ", multiplier= %.1f"  +
-                ", total=" + total +
+                ", total= " + total +
                 ", rate= %.1f" +
                 '}', multiplier, rate);
+    }
+
+    public String toString2() {
+        return String.format(
+                " " + complexity +
+                " " + point +
+                " %.1f"  +
+                " " + total +
+                " %.1f"
+                , multiplier, rate);
     }
 }

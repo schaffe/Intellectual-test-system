@@ -16,6 +16,8 @@ import java.util.Set;
  * @version 1.0.0 11/22/13
  */
 public class QuestionStorage {
+
+    //TODO storage in sets. Deleting question after usage
     private HashMap<String, Topic> topicMap;
 
     public QuestionStorage() {
@@ -27,7 +29,7 @@ public class QuestionStorage {
         return topicMap.get(param.getTopic()).getQuestion(param.getComplexity());
     }
 
-    public Set getTopics() {
+    public Set<String> getTopics() {
         return topicMap.keySet();
     }
 

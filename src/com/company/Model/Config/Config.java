@@ -14,9 +14,10 @@ public class Config {
 
     public static ArrayList<String> getQuestionFileNames() {
         ArrayList<String> names = new ArrayList<>();
-        names.add(JAVA_CORE_QUESTIONS);
-        names.add(JAVA_EE_QUESTIONS);
-        names.add(JAVA_SE_QUESTIONS);
+        //names.add(JAVA_CORE_QUESTIONS);
+        //names.add(JAVA_EE_QUESTIONS);
+        //names.add(JAVA_SE_QUESTIONS);
+        names.add(STOHAST);
         return names;
     }
 
@@ -29,4 +30,6 @@ public class Config {
     private final static String JAVA_SE_QUESTIONS = "JavaSEQuestions.xml";
 
     private final static String JAVA_EE_QUESTIONS = "JavaEEQuestions.xml";
+    private final static String STOHAST = "Стохастические системы.xml";
+
 }

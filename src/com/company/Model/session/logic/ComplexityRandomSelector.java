@@ -1,6 +1,7 @@
 package com.company.Model.session.logic;
 
-import java.util.List;
+import com.company.Model.session.question.Complexity;
+
 import java.util.Random;
 
 /**
@@ -10,31 +11,31 @@ import java.util.Random;
  * @author Artur Dzidzoiev
  * @version 3/24/14
  */
-class TopicRandomSelector {
-    private List<TopicStatisticItem> topicList;
+class ComplexityRandomSelector {
+    private double[] doubleArray;
     private Random rand;
 
-    TopicRandomSelector(List<TopicStatisticItem> topicList) {
-        this.topicList = topicList;
+    ComplexityRandomSelector(double[] doubleArray) {
+        this.doubleArray = doubleArray;
         rand = new Random();
 
     }
 
-    public TopicStatisticItem get() {
+    public Complexity get() {
         int totalSum = 0;
-        for (TopicStatisticItem item : topicList) {
-            totalSum += item.getRevertedRate();
+        for (Double item : doubleArray) {
+            totalSum += Math.round(item);
         }
         int index = rand.nextInt(totalSum);
         double sum = 0;
         int i=0;
         while(sum < index ) {
-            sum = sum + topicList.get(i++).getRevertedRate();
+            sum = sum + doubleArray[i++];
         }
         if(i == 0) {
-            System.err.println("TopicRandomSelector#get()@i==0 ");
+            System.err.println("///#get()@i==0 ");
         }
-        return topicList.get(i-1);
+        return Complexity.get(doubleArray[i - 1]);
     }
 
 
