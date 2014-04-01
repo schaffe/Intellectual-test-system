@@ -26,6 +26,7 @@ public class QuestionLogic implements Serializable{
         topicRandomSelector = new TopicRandomSelector(topicStatistics);
     }
 
+    private QuestionLogic(){};
 
     public QuestionParam getNextParam(boolean result){
         TopicStatisticItem topicItem = topicRandomSelector.get();
@@ -40,5 +41,29 @@ public class QuestionLogic implements Serializable{
             array.add(item.getStats());
         }
         return array;
+    }
+
+    public static void main(String... args) {
+        QuestionLogic logic = new QuestionLogic();
+        logic.topicStatistics = new ArrayList<>();
+        for(int i = 0; i <= 5; i++) {
+            logic.topicStatistics.add(new TopicStatisticItem(String.format("Topic %s",i),i*20));
+        }
+        logic.topicRandomSelector = new TopicRandomSelector(logic.topicStatistics);
+
+        System.out.println(logic.getStat());
+
+        for(int i = 0; i <= 100; i+=5) {
+//            System.out.printf("%s %.0f ",i , dist.function(dist.dist0, i));
+//            System.out.printf("%.0f ", dist.function(dist.dist0, i));
+
+//            System.out.printf("%.7f ", dist.function(dist.dist50, i));
+//            System.out.printf("%.0f ", dist.function(dist.dist100, i));
+            System.out.println();
+        }
+        //System.out.println(Arrays.toString(array));
+
+
+
     }
 }

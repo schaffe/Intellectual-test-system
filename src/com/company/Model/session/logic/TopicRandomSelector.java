@@ -1,7 +1,6 @@
 package com.company.Model.session.logic;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Selecting random topic depends on rating of topic
@@ -21,21 +20,49 @@ class TopicRandomSelector {
     }
 
     public TopicStatisticItem get() {
-        int totalSum = 0;
+        double[] wages = new double[topicList.size()];
+        int i = 0;
         for (TopicStatisticItem item : topicList) {
-            totalSum += item.getRevertedRate();
+            wages[i++] = item.getRevertedRate();
+        }
+        int index = getRandomIndex(wages);
+        return topicList.get(index);
+    }
+
+    public static void main(String... args) {
+        List<TopicStatisticItem> topicList = new ArrayList<>();
+        for(int i = 0; i <= 100; i+= 5) {
+            topicList.add(new TopicStatisticItem(String.format("%s",i),i));
+        }
+        TopicRandomSelector selector = new TopicRandomSelector(topicList);
+        List<String> asList = new LinkedList<>();
+        for(int i = 0; i <= 10000; i++) {
+            asList.add(selector.get().toString());
+        }
+        //System.out.println(Arrays.toString(array));
+
+        Set<String> mySet = new TreeSet<>(asList);
+        for(String s: mySet){
+
+            System.out.println(s + " " + Collections.frequency(asList, s));
+
+        }
+
+
+    }
+
+    public int getRandomIndex(double[] wages) {
+        int totalSum = 0;
+        for (Double item : wages) {
+            totalSum += Math.round(item);
         }
         int index = rand.nextInt(totalSum);
         double sum = 0;
         int i=0;
         while(sum < index ) {
-            sum = sum + topicList.get(i++).getRevertedRate();
+            sum = sum + wages[i++];
         }
-        if(i == 0) {
-            System.err.println("TopicRandomSelector#get()@i==0 ");
-        }
-        return topicList.get(i-1);
+
+        return i;
     }
-
-
 }

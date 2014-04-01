@@ -4,10 +4,7 @@ import com.company.Model.Config.Config;
 import com.company.Model.session.Parser.ParsingExecutor;
 import com.company.Model.session.QuestionParam;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Class returns a question depends on required topic and
@@ -26,7 +23,13 @@ public class QuestionStorage {
     }
 
     public Question getQuestion(QuestionParam param) {
-        return topicMap.get(param.getTopic()).getQuestion(param.getComplexity());
+        Question question;
+        try {
+            question = topicMap.get(param.getTopic()).getQuestion(param.getComplexity());
+        } catch (NoSuchElementException e) {
+            question = getRandomQuestion();
+        }
+        return question;
     }
 
     public Set<String> getTopics() {
@@ -35,8 +38,9 @@ public class QuestionStorage {
 
     public Question getRandomQuestion() {
         int random = new Random().nextInt(getTopics().size());
-        ArrayList<String> arrayWithSet = new ArrayList(topicMap.keySet());
-        return topicMap.get(arrayWithSet.get(random)).getQuestion(Complexity.medium);
+        int randomCompl = new Random().nextInt(Complexity.values().length);
+        ArrayList<String> arrayWithSet = new ArrayList<>(topicMap.keySet());
+        return topicMap.get(arrayWithSet.get(random)).getQuestion(Complexity.get(randomCompl));
     }
 
     private void load() {

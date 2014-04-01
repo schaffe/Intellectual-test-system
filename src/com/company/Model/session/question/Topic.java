@@ -1,6 +1,7 @@
 package com.company.Model.session.question;
 
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 /**
  * Class
@@ -27,7 +28,7 @@ public class Topic {
         complexityMap.put(complexity, questionList);
     }
 
-    public Question getQuestion(Complexity complexity) {
+    public Question getQuestion(Complexity complexity) throws NoSuchElementException{
         return complexityMap.get(complexity).getQuestion();
     }
 }

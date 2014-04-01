@@ -1,8 +1,10 @@
 package com.company.Model.session.logic;
 
+import com.company.Model.Config.Config;
 import com.company.Model.session.question.Complexity;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class
@@ -11,14 +13,16 @@ import java.util.LinkedList;
  * @version 3/23/14
  */
 class TopicStatistic {
-    public final static int MAX_RATE = 100;
-    private final static int MIN_RATE = 5;
-    private final static int DEFAULT_RATE = 45;
-    int correct;
-    private LinkedList<StatisticTableRow> data;
+    private int correct;
+    private List<StatisticTableRow> data;
 
     public TopicStatistic() {
-        data = new LinkedList<>();
+        data = new ArrayList<>();
+    }
+
+    public TopicStatistic(double rate) {
+        data = new ArrayList<>();
+        data.add(new StatisticTableRow(0, 0, 0, rate));
     }
 
     public Complexity addQuestion(boolean result) {
@@ -40,16 +44,49 @@ class TopicStatistic {
     }
 
     private void addFailedQuestion(Complexity complexity) {
-        StatisticTableRow row = calculateRowFailed(complexity.getValue(), 0, complexity.getMultiplier());
+        StatisticTableRow row = calculateRowFailed(complexity.getValue(), complexity.getPoints(), complexity.getMultiplier());
         data.add(row);
     }
 
     private void addCompletedQuestion(Complexity complexity) {
-        StatisticTableRow row = calculateRowCompleted(complexity.getValue(), complexity.getPoints(), complexity.getMultiplier());
+        StatisticTableRow row = calculateRowCompleted2(complexity.getValue(), complexity.getPoints());
         data.add(row);
     }
 
-    private StatisticTableRow calculateRowCompleted(int complexity, int points, double multiplier) {
+    private StatisticTableRow calculateRowCompleted2(int complexity, int points) {
+        double rate;
+        if (data.isEmpty()) {
+            rate = Config.DEFAULT_RATE;
+        } else {
+            rate = getLast().getRate();
+        }
+
+        rate += points;
+        if(rate > Config.MAX_RATE) {
+            rate = Config.MAX_RATE;
+        }
+
+        return new StatisticTableRow(complexity, points, 0, rate);
+    }
+
+    private StatisticTableRow calculateRowFailed(int complexity, int points, double multiplier) {
+        double rate;
+        if (data.isEmpty()) {
+            rate = Config.DEFAULT_RATE;
+        } else {
+            rate = getLast().getRate();
+        }
+
+        double delta = points * multiplier; //* ((rate + Config.MAX_RATE) / Config.MAX_RATE);
+        rate -= delta;
+
+        if(rate <= Config.MIN_RATE) {
+            rate = Config.MIN_RATE;
+        }
+        return new StatisticTableRow(complexity, 0, delta, rate);
+    }
+
+    /*private StatisticTableRow calculateRowCompleted(int complexity, int points, double multiplier) {
         int prevTotal;
         double prevMul;
         if(data.isEmpty()) {
@@ -60,7 +97,7 @@ class TopicStatistic {
             prevMul = data.getLast().getMultiplier();
         }
 
-        int newTotal = (int) ((prevTotal + points) * multiplier);
+        int newTotal = (int) ((prevTotal + points));
         double newMul = prevMul + multiplier;
         double rate = newTotal / newMul;
 
@@ -87,19 +124,19 @@ class TopicStatistic {
         double rate = newTotal / newMul;
 
         return new StatisticTableRow(complexity, points, newMul, newTotal, rate);
-    }
+    }*/
 
 
     private Complexity getNextComplexity() {
-        double rate = data.getLast().getRate();
+        double rate = getLast().getRate();
         return Complexity.get(rate);
     }
 
     public double getRaring() {
         if (data.isEmpty()) {
-            return DEFAULT_RATE;
+            return Config.DEFAULT_RATE;
         } else {
-            return data.getLast().getRate();
+            return getLast().getRate();
         }
     }
 
@@ -115,7 +152,7 @@ class TopicStatistic {
         }*/
 
         for (int i = 0; i < 20; i++){
-            System.out.println(table.data.getLast().toString2());
+            System.out.println(table.getLast().toString2());
             //System.out.println(table.getStats());
             table.addQuestion(getRandomBoolean());
 
@@ -143,11 +180,15 @@ class TopicStatistic {
         return String.format("Questions: %s, Correct: %s, Rating %.0f, Simple: %s, Medium: %s, Hard %s",
                     data.size(),
                     correct,
-                    data.getLast().getRate(),
+                    getLast().getRate(),
                     getComplexityCount(1),
                     getComplexityCount(2),
                     getComplexityCount(3)
                     );
+    }
+
+    private StatisticTableRow getLast() {
+        return data.get(data.size() - 1);
     }
 
     private static boolean getRandomBoolean() {

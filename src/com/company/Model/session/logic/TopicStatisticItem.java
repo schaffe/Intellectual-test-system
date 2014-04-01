@@ -1,5 +1,6 @@
 package com.company.Model.session.logic;
 
+import com.company.Model.Config.Config;
 import com.company.Model.session.question.Complexity;
 
 /**
@@ -17,8 +18,14 @@ final class TopicStatisticItem {
         this.name = name;
     }
 
+
+    TopicStatisticItem(String name, double rate) {
+        topicStatistic = new TopicStatistic(rate);
+        this.name = name;
+    }
+
     public double getRevertedRate() {
-        double rate = TopicStatistic.MAX_RATE - topicStatistic.getRaring();
+        double rate = Config.MAX_RATE - topicStatistic.getRaring();
         return rate;
     }
 
@@ -28,6 +35,11 @@ final class TopicStatisticItem {
 
     public String getStats() {
         return String.format("%s : %s",name,topicStatistic.getStats());
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
     public String getName() {

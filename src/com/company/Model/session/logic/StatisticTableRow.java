@@ -10,14 +10,12 @@ class StatisticTableRow {
     private final int complexity;
     private final int point;
     private final double multiplier;
-    private final int total;
     private final double rate;
 
-    public StatisticTableRow(int complexity, int point, double multiplier, int total, double rate) {
+    public StatisticTableRow(int complexity, int point, double multiplier,double rate) {
         this.complexity = complexity;
         this.point = point;
         this.multiplier = multiplier;
-        this.total = total;
         this.rate = rate;
     }
 
@@ -33,10 +31,6 @@ class StatisticTableRow {
         return multiplier;
     }
 
-    public int getTotal() {
-        return total;
-    }
-
     public double getRate() {
         return rate;
     }
@@ -46,8 +40,7 @@ class StatisticTableRow {
         return String.format("StatisticTableRow{" +
                 "complexity= " + complexity +
                 ", point= " + point +
-                ", multiplier= %.1f"  +
-                ", total= " + total +
+                ", minus= %.1f"  +
                 ", rate= %.1f" +
                 '}', multiplier, rate);
     }
@@ -57,7 +50,6 @@ class StatisticTableRow {
                 " " + complexity +
                 " " + point +
                 " %.1f"  +
-                " " + total +
                 " %.1f"
                 , multiplier, rate);
     }

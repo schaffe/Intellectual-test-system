@@ -12,11 +12,8 @@ import java.util.Random;
  */
 public enum Complexity {
 
-    easy(1, 30, 1.6), medium(2, 60, 1.3), hard(3, 100, 1.);
+    easy(1, 3, 1.6), medium(2, 6, 1.3), hard(3, 10, 1.);
 
- /*   private static final int EASY_VALUE = 1;
-    private static final int MEDIUM_VALUE = 2;
-    private static final int HARD_VALUE = 3;*/
     private final int value;
     private final double multiplier;
     private final int points;
