@@ -1,0 +1,214 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<questions xmlns="http://www.w3schools.com/ITS"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.w3schools.com/ITS questions.xsd">
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Что есть стохастический процесс?</title>
+		<complexity>easy</complexity>
+		<answers>
+			<variant correctness="true">Течение которого может быть различным в зависимости от случая и для которого определена вероятность того или иного его течения.</variant>
+			<variant correctness="false">Течение которого не зависит от случая и для которого определена вероятность того или иного его течения.</variant>
+			<variant correctness="false">Существует множество допустимых параметров процесса независящих друг от друга.</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Что такое стохастическая аппроксимация?</title>
+		<complexity>easy</complexity>
+		<answers>
+			<variant correctness="true">Метод решения широкого класса задач статистического оценивания, при котором каждое следующее значение оценки получается в виде основанной лишь на новом наблюдении поправки к уже построенной оценке.</variant>
+			<variant correctness="false">Сближение двух точек на функции путем определения медианы.</variant>
+			<variant correctness="false">Системный подход к вариации иследовательских аппроксимаций.</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Выберите определение формы</title>
+		<complexity>easy</complexity>
+		<answers>
+			<variant correctness="true">характер ориентации деятельности. В основе формы лежит ведущий метод.</variant>
+			<variant correctness="false">способ совместной деятельности педагога и обучаемого с целью решения задач.</variant>
+			<variant correctness="false">занятия с проверкой и оценкой знаний (контрольные работы и т.п.)</variant>
+			<variant correctness="false">форма организации обучения, при которой учебная работа характеризуется отсутствием непосредственного руководства преподавателя.</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Выберите определение метода</title>
+		<complexity>easy</complexity>
+		<answers>
+			<variant correctness="false">характер ориентации деятельности. В основе формы лежит ведущий метод.</variant>
+			<variant correctness="true">способ совместной деятельности педагога и обучаемого с целью решения задач.</variant>
+			<variant correctness="false">занятия с проверкой и оценкой знаний (контрольные работы и т.п.)</variant>
+			<variant correctness="false">форма организации обучения, при которой учебная работа характеризуется отсутствием непосредственного руководства преподавателя.</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Выберите объяснение лекции</title>
+		<complexity>easy</complexity>
+		<answers>
+			<variant correctness="true">монолог учителя на заданную тему</variant>
+			<variant correctness="false">отработка умений и навыков</variant>
+			<variant correctness="false">занятия с проверкой и оценкой знаний </variant>			
+			<variant correctness="false">комбинированные занятия</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Из каких частей состоит любая деятельность</title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="true">ориентировочно-мотивационной, операционально-исполнительной, рефлексивно-оценочной</variant>
+			<variant correctness="false">нормативно-правовой, операционально-исполнительной, рефлексивно-оценочной</variant>
+			<variant correctness="false">нормативно-правовой, рефлексивной, рефлексивно-оценочной</variant>
+			<variant correctness="false">нормативно-правовой, операционально-исполнительной, оценочной</variant>
+
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Ориентация на внешние, чувственно воспринимаемые свойства присуща</title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="true">Эмпирическое мышление</variant>
+			<variant correctness="false">Теоретическое мышление </variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Cпособ ориентации, обеспечивающий выделение всеобщего для этого класса задач отношения </title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="false">Эмпирическое мышление</variant>
+			<variant correctness="true">Теоретическое мышление </variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Обучение ученика с помощью определённой математической модели не имея обратной связи используется для</title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="false">Обучения с обратной связью</variant>
+			<variant correctness="true">Слепого обучения</variant>
+			<variant correctness="false">Обучения с моделью наблюдателя и памятью </variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Замена обратной связи строится на базе ТАУ либо нейросетей используется для</title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="false">Обучения с обратной связью</variant>
+			<variant correctness="true">Слепого обучения</variant>
+			<variant correctness="false">Обучения с моделью наблюдателя и памятью </variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Занятий для отработки умений и навыков</title>
+		<complexity>medium</complexity>
+		<answers>
+			<variant correctness="true">лабораторные работы</variant>
+			<variant correctness="false">лекции</variant>
+			<variant correctness="false">занятия с проверкой и оценкой знаний </variant>			
+			<variant correctness="false">комбинированные занятия</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Обучение по схеме "изучение нового - закрепление - контроль - оценка" присуще форме обучения</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="true">Традиционное обучение</variant>
+			<variant correctness="false">Дистанционное обучение</variant>
+		</answers>
+	</question>
+
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>При построении математической модели запись операторов осуществляется с помощью линейного представленя. Указать формулу</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="true">Qip = ai + αip</variant>
+			<variant correctness="false">Qip = p + ai(1 – p) - bip</variant>
+			<variant correctness="false">Qip = αip + (1 - αi) λi</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>При построении математической модели запись операторов осуществляется с помощью явного представленя. Указать формулу</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="false">Qip = ai + αip</variant>
+			<variant correctness="true">Qip = p + ai(1 – p) - bip</variant>
+			<variant correctness="false">Qip = αip + (1 - αi) λi</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>При построении математической модели запись операторов осуществляется с помощью указания неподвижной точки представленя. Указать формулу</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="false">Qip = ai + αip</variant>
+			<variant correctness="false">Qip = p + ai(1 – p) - bip</variant>
+			<variant correctness="true">Qip = αip + (1 - αi) λi</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Указать функцию Монро-Робинсона</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="true">xK+i = Xk +ак (ук - a)</variant>
+			<variant correctness="false">P ( e ) = exp (e / k T) </variant>
+			<variant correctness="false">P(e)=exp(-e/kT)</variant>
+			<variant correctness="false">Qip = ai + αip</variant>
+			<variant correctness="false">Qip = p + ai(1 – p) - bip</variant>
+			<variant correctness="false">P(c)=exp(-c/kT)</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Указать функцию распределения Больцмана</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="false">xK+i = Xk +ак (ук - a)</variant>
+			<variant correctness="false">P ( e ) = exp (e / k T) </variant>
+			<variant correctness="false">P(e)=exp(-e/kT)</variant>
+			<variant correctness="false">Qip = ai + αip</variant>
+			<variant correctness="false">Qip = p + ai(1 – p) - bip</variant>
+			<variant correctness="true">P(c)=exp(-c/kT)</variant>
+		</answers>
+	</question>
+	
+	<question>
+		<type>MultipleChoiceQuestion</type>
+		<title>Указать функцию распределения Гаусса</title>
+		<complexity>hard</complexity>
+		<answers>
+			<variant correctness="false">xK+i = Xk +ак (ук - a)</variant>
+			<variant correctness="false">P(e)= exp(-e/kT)</variant>
+			<variant correctness="false">Qip = ai + αip</variant>
+			<variant correctness="false">Qip = p + ai(1 – p) - bip</variant>
+			<variant correctness="true">P(w)=exp(-w2/T2)</variant>
+		</answers>
+	</question>
+</questions>
