@@ -57,10 +57,10 @@ class TopicRandomSelector {
             totalSum += Math.round(item);
         }
         int index = rand.nextInt(totalSum);
-        double sum = 0;
+        double sum = wages[0];
         int i=0;
         while(sum < index ) {
-            sum = sum + wages[i++];
+            sum = sum + wages[++i];
         }
 
         return i;
